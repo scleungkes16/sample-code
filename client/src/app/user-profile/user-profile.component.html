@@ -1,0 +1,34 @@
+<banner></banner>
+<div class="container container-box"> 
+  <div class="submenu">
+    <div class="submenu-content">
+      <div class="submenu-item">
+        <a href="#" class="submenu-item-link" [routerLink]="['/user-profile', { outlets: {'profileOutlet':['transaction-history']}}]">
+          <div class="submenu-item-icon">
+            <i class="fa fa-history"></i>
+          </div>
+          <span class="submenu-item-txt">Transaction History</span>
+        </a>
+      </div>
+      <div class="submenu-item">
+        <a href="#" class="submenu-item-link" [routerLink]="['/user-profile', { outlets: {'profileOutlet':['channel-management']}}]">
+          <div class="submenu-item-icon">
+            <i class="fa fa-object-group"></i>
+          </div>
+          <span class="submenu-item-txt">Channel Management</span>
+        </a>
+      </div>
+      <div class="submenu-item">
+        <a href="#" class="submenu-item-link" [routerLink]="['/user-profile', { outlets: {'profileOutlet':['account-management']}}]">
+          <div class="submenu-item-icon">
+            <i class="fa fa-address-card"></i>
+          </div>
+          <span class="submenu-item-txt">Account Management</span>
+        </a>
+      </div>            
+    </div>    
+  </div>
+  <div> 
+    <router-outlet name="profileOutlet"></router-outlet>
+  </div>
+</div>

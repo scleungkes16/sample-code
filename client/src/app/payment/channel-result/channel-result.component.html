@@ -1,0 +1,54 @@
+<div>
+  <div class="form-bottom" *ngIf="isSuccess">
+    <div class="form-content">
+        <div class="form-content-top">
+          <div class="panelHeaderS">
+            <h5 class="white-font"><i class="fa fa-id-card-o"></i> Channel Details</h5>
+          </div>
+        </div>
+        <div class="form-content-bottom">
+          <div class="readOnlyForm">
+            <div class="readOnlyFormRow">
+              <div class="row">
+                <div class="col-sm-4">Merchant Name:</div>
+                <div class="col-sm-8">{{ merchantName }}</div>        
+              </div>
+              <div class="row">
+                <div class="col-sm-4">Time Expiry:</div>
+                <div class="col-sm-8">{{ helper.formatTimestamp(expiredDate) }}</div>        
+              </div>                                 
+            </div>
+          </div>
+        </div>
+    </div>  
+    <div class="form-content">
+        <div class="form-content-top ">
+          <div class="panelHeaderS">
+            <h5 class="white-font"><i class="fa fa-btc"></i> Deposit Details</h5>
+          </div>
+        </div>
+        <div class="text-center" >          
+        <div class="form-content-bottom">
+            <h4>Coinetion Channel Address</h4>
+            <qr-code [value]="depositAdderess" [size]="150" class="qrCodeStyle"></qr-code>               
+            <!-- <div class="alert alert-warning text-center" role="alert">{{sourceAdderess}}</div>    -->
+          </div>                
+          <div>
+            <div style="margin: 20px;" class="alert alert-warning text-center" role="alert">{{ depositAdderess }}</div>   
+          </div>
+          <div class="blueLeftGreen">
+            <div style="padding: 20px;">
+              <h4>Instructions to Deposit</h4><br/>
+              <p>Please ensure that your first Bitcoin transfer can reach your above Designated Channel Bitcoin Address  before {{ helper.formatTimestamp(expiredDate) }} (3 hours after channel is opened) or else your channel will be automatically timeout.</p>
+              </div>
+          </div>            
+        </div>
+        <hr>
+        <div class="row btn-bar">
+         <button class="cust-btn cust-btn-green floatCenter" (click)="onBackSubmit()"><i class="fa fa-undo"></i>  Back</button>
+        </div>            
+    </div>        
+  </div>
+  <div class="form-bottom" *ngIf="!isSuccess">
+    <invalid-content></invalid-content>     
+</div>

@@ -1,0 +1,66 @@
+<ng-template #content let-c="close" let-d="dismiss" class="">
+  <div class="channel-dialog-header">
+    <div class="channel-dialog-header-txt">
+      <h3>Channel Info</h3>
+    </div>
+    <div class="float-right">
+      <button title="Close" type="button" class="cust-btn-dialog-close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>      
+    </div>
+  </div>
+  <div class="channel-dialog-subheader"></div>
+  <div class="channel-dialog-body">
+    <div class="readOnlyForm">
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Channel Alias:</strong></div>
+          <div class="col-sm-7 text-left">{{ channel[0].alias }}</div>        
+        </div>
+      </div>  
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Status:</strong></div>
+          <div class="col-sm-7 text-left">{{ channel[0].status }}</div>      
+        </div>
+      </div>      
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Expired Date:</strong></div>
+          <div class="col-sm-7 text-left">{{ helper.formatTimestamp(channel[0].expiredDate) }}</div>        
+        </div>
+      </div>  
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Broadcast Time:</strong></div>
+          <div class="col-sm-7 text-left" *ngIf="channel[0].status == 'TERMINATED'">{{ helper.formatTimestamp(channel[0].terminationDate) }}</div>    
+          <div class="col-sm-7 text-left" *ngIf="channel[0].status != 'TERMINATED'"> N/A </div>      
+        </div>
+      </div>   
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Available Fund^:</strong></div>
+          <div class="col-sm-7 text-left" *ngIf="channel[0].status == 'TERMINATED'"> 0 Satoshi</div>    
+          <div class="col-sm-7 text-left" *ngIf="channel[0].status != 'TERMINATED'"> {{ channel[0].availableFund | number:'1.0-0'}} Satoshi </div>                  
+        </div>
+      </div>  
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Coinetion Channel Address:</strong></div>
+          <div class="col-sm-7 text-left" style="word-wrap: break-word;">{{ channel[0].sourceAddress }}</div>   
+        </div>
+      </div> 
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-12 text-center"><qr-code [value]="channel[0].sourceAddress" [size]="100" class="qrCodeStyle"></qr-code>  </div>   
+        </div>
+      </div>         
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-12 text-left">^Available Fund reflects the amount available for spending AFTER reserving {{ channel[0].miningFee | number:'1.0-0'}} Satoshi of miner fee to broadcast the final payment transaction.</div>
+        </div>
+      </div> 
+    </div>    
+  </div>
+</ng-template>
+<button title="Channel Details" class="list-btn list-btn-blue" (click)="open(content)"><i class="fa fa-info"></i></button>

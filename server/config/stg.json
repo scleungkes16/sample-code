@@ -1,0 +1,15 @@
+{
+  "server": {
+    "domain_name": "https://staging.coinetion.com",
+    "port" : 443
+  },
+  "coinetion_ws": {
+    "path" : "https://local-stg-elb-customerws.coinetion.com",
+    "port" : 443
+  },
+  "oauth": {
+    "public_url": "https://stg-oauth.coinetion.com",
+    "internal_url": "https://local-stg-elb-oauth.coinetion.com",
+    "port" : 443
+  }
+}

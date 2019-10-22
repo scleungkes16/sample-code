@@ -1,0 +1,66 @@
+<ng-template #content let-c="close" let-d="dismiss" class="">
+  <div class="channel-dialog-header">
+    <div class="channel-dialog-header-txt">
+      <h3>Transaction Info</h3>
+    </div>
+    <div class="float-right">
+      <button title="Close" type="button" class="cust-btn-dialog-close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>      
+    </div>
+  </div>
+  <div class="channel-dialog-subheader"></div>
+  <div class="channel-dialog-body">   
+    <div class="readOnlyForm">
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Payment Name:</strong></div>
+          <div class="col-sm-7 text-left">{{ transaction.paymentName }}</div>        
+        </div>
+      </div>  
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Payment Date:</strong></div>
+          <div class="col-sm-7 text-left">{{  helper.formatTimestamp(transaction.transactionDate) }}</div>        
+        </div>
+      </div>        
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Coinetion Channel Address:</strong></div>
+          <div class="col-sm-7 text-left" style="word-wrap: break-word;">{{ sourceAddress }}</div>        
+        </div>
+      </div>       
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Total Price:</strong></div>
+          <div class="col-sm-7 text-left">{{ transaction.transactionAmount | number:'1.0-0'}} Satoshi</div>        
+        </div>
+      </div> 
+      <div class="readOnlyFormRow">
+        <div class="row">
+          <div class="col-sm-5 text-left"><strong>Payment ID:</strong></div>
+          <div class="col-sm-7 text-left">{{ transaction.paymentId }}</div> 
+        </div>
+      </div>           
+      <div class="readOnlyFormRow">
+          <div class="row">
+            <div class="col-sm-5 text-left"><strong>Item:</strong></div>
+            <div class="col-sm-7 text-left">        
+              <div *ngFor="let item of itemList" class="">
+                <div class="border-left-green item-container" style="">                 
+                  <div class="">
+                    <div><strong>{{ item.name }} x {{ item.quantity }}</strong></div>
+                    <div>{{ item.price | number:'1.0-0'}} Satoshi</div>
+                  </div>                                          
+                </div>
+              </div>
+              <div *ngIf="itemList.length == 0">
+                N/A 
+              </div> 
+            </div>        
+          </div>
+      </div>           
+    </div>          
+  </div>    
+</ng-template>
+<button title="Transaction Details" class="list-btn list-btn-blue" (click)="open(content)"><i class="fa fa-info"></i></button>

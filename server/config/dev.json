@@ -1,0 +1,15 @@
+{
+  "server": {
+	"domain_name": "http://localhost",
+    "port" : 80
+  },
+  "coinetion_ws": {
+	"path" : "http://mcoin-customer-ws.xenzex.local:8080",
+	"port" : 8080
+  },
+  "oauth": {
+    "public_url": "http://oauth-bc15.xenzex.local:8080",
+    "internal_url": "http://oauth-bc15.xenzex.local:8080",
+  	"port" : 8080
+  }
+}

@@ -1,0 +1,77 @@
+<div class="form-bottom">
+		<br/>
+    <div class="form-content">
+        <div></div>
+				<div class="form-content-top">
+          <div class="panelHeaderS">
+            <h5 class="white-font"><i class="fa fa-user-circle-o"></i> Acount Details</h5>
+          </div>
+        </div>
+        <div class="form-content-bottom form-container">
+            <div class="">
+                <alert [errors]="errorList" [successMsg]="successMsg"></alert>
+            </div>        
+						<form *ngIf="!isShowChangePwForm" [formGroup]="accountForm" role="form" action="" method="post" class="data-form">
+            	<div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="formLabel">Email / User ID:</label>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" name="form-username" class="form-control" formControlName="email">
+                </div>                
+              </div>    
+            <div class="form-group row">
+              <div class="col-sm-3">
+                <label class="formLabel">Alternate Email:</label>
+              </div>
+              <div class="col-sm-6">
+                <input type="text" name="form-username" class="form-control" formControlName="altEmail" >                
+                <span class="infoMessage"> (This is used to recover your account if you get locked out or forget your password.) </span>
+              </div>  
+            </div>        
+            <div class="form-group row">
+              <div class="col-sm-3">
+                <label class="formLabel">Password:</label>
+              </div>
+              <div class="col-sm-6">
+                <button class="cust-btn cust-btn-green floatCenter" (click)="onChangePassword($event)"><i class="fa fa-key"></i>  Change Password</button>
+              </div>   
+            </div>                    
+          </form>    
+					<form *ngIf="isShowChangePwForm" [formGroup]="passwordForm" role="form" action="" method="post" class="data-form">
+            	<div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="formLabel">Old Password:</label>
+                </div>
+                <div class="col-sm-6">
+                  <input type="password" class="form-control" formControlName="password" >
+                </div>                
+              </div>    
+            <div class="form-group row">
+              <div class="col-sm-3">
+                <label class="formLabel">New Password:</label>
+              </div>
+              <div class="col-sm-6">
+                <input type="password" class="form-control" formControlName="newPassword" >
+              </div>   
+            </div>        
+            <div class="form-group row">
+              <div class="col-sm-3">
+                <label class="formLabel">Retype New Password:</label>
+              </div>
+              <div class="col-sm-6">
+                <input type="password" class="form-control" formControlName="retypePw" >
+              </div>   
+            </div>                        
+          </form>             
+        </div>
+        <hr>
+        <div class="row btn-bar">
+        		<div class="floatCenter">
+	            <button class="cust-btn cust-btn-green" *ngIf="!isShowChangePwForm"  (click)="onSubmitChanges($event)"><i class="fa fa-check"></i>  Save</button>
+	            <button class="cust-btn cust-btn-red" *ngIf="isShowChangePwForm"  (click)="onChangePasswordCancel()"><i class="fa fa-times"></i>  Cancel</button> 
+							<button class="cust-btn cust-btn-green" *ngIf="isShowChangePwForm"  (click)="onSubmitPwChange($event)"><i class="fa fa-check"></i>  Confirm</button>
+            </div>       
+        </div>      
+    </div>
+</div>

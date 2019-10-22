@@ -1,0 +1,23 @@
+{
+  "name": "Customer-Portal",
+  "version": "1.0.0",
+  "description": "Customer Portal",
+  "main": "server.js",
+  "scripts": {
+    "dev": "set NODE_ENV=DEV && node server.js",
+    "uat": "set NODE_ENV=UAT && node server.js",
+    "stg": "set NODE_ENV=STG && node server.js",
+    "prod": "set NODE_ENV=PROD && node server.js"
+  },
+  "author": "kester.leung",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "crypto": "^1.0.1",
+    "express": "^4.15.3",
+    "express-session": "^1.15.5",
+    "restify": "^4.3.0",
+    "simple-oauth2": "^1.3.0"
+  }
+}

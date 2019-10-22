@@ -1,0 +1,156 @@
+<div class="form-bottom">
+		<br/>
+    <div class="form-content">
+      <div class="form-content-top">
+        <div class="float-right form-content-top-btn">      
+        </div>                 
+        <div class="panelHeaderM">
+          <h5 class="white-font"><i class="fa fa-tasks"></i> Transaction History</h5>
+        </div>   
+        <div class="search-container">               
+          <div class="search-panel">
+          <div class="panelHeaderM">
+            <h5 class="white-font"><i class="fa fa-search"></i> Search Panel</h5>
+          </div>          
+          <div class="alert-container"> 
+            <alert [errors]="errorList"></alert>
+          </div>
+            <form [formGroup]="searchForm" role="form" action="" method="post" class="data-form form-container">
+
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="formLabel">Payment ID:</label>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" formControlName="paymentId">
+                </div>                
+              </div>       
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="formLabel">Payment Name:</label>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" formControlName="paymentName">
+                </div>                
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="formLabel">Payment Amount From:</label>
+                </div>                
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName="minTransactionAmount" >
+                </div>   
+                <div class="col-sm-1">
+                  <label class="formLabel">To:</label>
+                </div>                     
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName="maxTransactionAmount" >
+                </div>                  
+              </div>         
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="formLabel">Transaction Date From:</label>
+                </div>                
+                <div class="col-sm-3">
+                  <div class="input-group">
+                    <input id="minExpiredDateTxt" class="form-control cust-cal-input" placeholder="dd-MMM-yyyy"
+                           [(ngModel)]="model1" ngbDatepicker #f="ngbDatepicker" formControlName="transactionDateFm">
+                    <button class="input-group-addon cust-dropdown-right" (click)="f.toggle()" type="button">
+                      <i class="fa fa-calendar "></i>
+                    </button>
+                  </div>                  
+                </div>   
+                <div class="col-sm-1">
+                  <label class="formLabel">To:</label>
+                </div>                     
+                <div class="col-sm-3">
+                  <div class="input-group">
+                    <input id="maxExpiredDateTxt" class="form-control cust-cal-input" placeholder="dd-MMM-yyyy"
+                           [(ngModel)]="model2" ngbDatepicker #t="ngbDatepicker" formControlName="transactionDateTo">
+                    <button class="input-group-addon cust-dropdown-right" (click)="t.toggle()" type="button">
+                      <i class="fa fa-calendar "></i>
+                    </button>
+                  </div>  
+                </div>                  
+              </div>                          
+              <div class="form-group row"> 
+                <div class="col-sm-3">
+                  <label class="formLabel">Order By:</label>
+                </div>
+                <div class="col-sm-3">
+                  <div ngbDropdown class="btn-group">
+                    <button type="button" class="cust-dropdown-left">{{ orderByLabel }}</button>
+                    <button type="button" class="cust-dropdown-right dropdown-toggle" ngbDropdownToggle>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div ngbDropdownMenu class="dropdown-menu cust-dropdown-menu">
+                      <a  class="dropdown-item cust-dropdown-item" (click)="selectOrderBy('transactionDate', '-----')"> ----- </a>                   
+                      <a  class="dropdown-item cust-dropdown-item" (click)="selectOrderBy('paymentName', 'Payment Name')">Payment Name</a>
+                      <a  class="dropdown-item cust-dropdown-item" (click)="selectOrderBy('paymentTotalPrice', 'Payment Amount')">Payment Amount</a>
+                    </div>
+                  </div>             
+                </div>                 
+              </div> 
+              <div class="form-group row">
+                <div class="col-sm-3">
+                  <label class="formLabel">Sorting Order:</label>
+                </div>
+                <div class="col-sm-9">
+                  <label class="custom-control custom-radio">
+                    <input id="radio1" name="radio" type="radio" class="custom-control-input" [checked]="( this.searchForm.get('order').value == 'ASC')" (change)="onSelectSorting($event, 'ASC')">
+                    <span class="custom-control-indicator" style="top:13px" ></span>
+                    <span class="custom-control-description formLabel">Ascending</span>
+                  </label>                      
+                  <label class="custom-control custom-radio">
+                    <input id="radio2" name="radio" type="radio" class="custom-control-input" [checked]="( this.searchForm.get('order').value == 'DESC')" (change)="onSelectSorting($event, 'DESC')">
+                    <span class="custom-control-indicator" style="top:13px"></span>
+                    <span class="custom-control-description formLabel">Descending</span>
+                  </label>                        
+                </div>  
+              </div>
+          </form>
+          <hr>
+          <div class="row btn-bar">
+              <div class="floatCenter">
+                <button class="cust-btn cust-btn-green" (click)="onResetSearch()"><i class="fa fa-refresh"></i>  Reset</button>
+                <button class="cust-btn cust-btn-green" (click)="onSubmitSearch($event)"><i class="fa fa-search"></i>  Search</button> 
+              </div>       
+          </div>   
+        	</div>
+        </div>
+        <div>
+          <div class="channel-box">
+              <div class="channelbox-title"><i class="fa fa-list"></i> Transaction List</div> 
+              <div class="channelbox-subtitle"></div>
+              <div class="channelbox-content">
+                <div *ngFor="let transaction of transactionList" class="channelbox-item">
+                  <div class="channelbox-item-content " style="">                   
+                    <div class="channelbox-item-txt" style="width: 300px !important;">
+                      <div class="channelbox-item-txt-content"><strong>{{ transaction.paymentName }} ({{ helper.formatTimestamp(transaction.transactionDate) }})</strong></div>
+                      <div class="channelbox-item-txt-content">{{ transaction.transactionAmount | number:'1.0-0'}} Satoshi</div>
+                    </div>      
+                    <div class="channel-item-btn-right">
+                      <transaction-info-dialog [transaction]="transaction"></transaction-info-dialog>
+                    </div>                                                              
+                  </div>
+                </div>
+                <div *ngIf="transactionList.length == 0" class="channelbox-item">
+                  <div>
+                    <div class="channelbox-no-item-txt">
+                        No transactions found.                            
+                    </div>
+                  </div>
+                </div>                                   
+              </div> 
+              <div class="channelbox-footer" style="background-color: #ddd ">
+                <ul class="pagination-cust" style="margin-bottom:0px !important;">
+                  <li class="page-item"><button [disabled]="!isValidToSubmit" class="page-link-cust" (click)="onSubmitPaging($event, 1)">First</button></li>
+                  <li *ngFor="let pageNo of createRange();" class="page-item"><button [ngClass]="{'active': (pageNo == currentIndex)}" class="page-link-cust" (click)="onSubmitPaging($event, pageNo)">{{ pageNo }}</button></li>
+                  <li class="page-item"><button [disabled]="!isValidToSubmit" class="page-link-cust" (click)="onSubmitPaging($event, totalPages)">Last</button></li>
+                </ul>
+              </div>                    
+          </div>
+        </div>
+      </div>
+  </div>  
+</div>

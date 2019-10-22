@@ -1,0 +1,124 @@
+<div>
+  <div>
+    <div class="form-bottom">
+      <div class="alert-container">
+        <alert [errors]="errorList" #errorAlert></alert>
+      </div>
+      <div class="form-content">
+          <div class="form-content-top">
+            <div class="panelHeaderS">
+              <h5 class="white-font"><i class="fa fa-id-card-o"></i> Payment Details</h5>
+            </div>
+          </div>
+          <div class="form-content-bottom">
+            <div class="readOnlyForm">
+              <div class="readOnlyFormRow">
+                <div class="row">
+                  <div class="col-sm-4"><strong>Merchant Name:</strong></div>
+                  <div class="col-sm-8">{{ merchantName }}</div>        
+                </div>
+                <div class="row">
+                  <div class="col-sm-4"><strong>Payment Name:</strong></div>
+                  <div class="col-sm-8">{{ name }}</div>        
+                </div>
+                <div class="row">
+                  <div class="col-sm-4"><strong>Description:</strong></div>
+                  <div class="col-sm-8">{{ description }}</div>        
+                </div>
+                <div class="row">
+                  <div class="col-sm-4"><strong>Status:</strong></div>
+                  <div class="col-sm-8">{{ status }}</div>        
+                </div>                
+                <div class="row">
+                  <div class="col-sm-4"><strong>Total Price:</strong></div>
+                  <div class="col-sm-8">{{ totalPrice | number:'1.0-0' }} Satoshi</div>        
+                </div>        
+                <div class="row">
+                  <div class="col-sm-4"><strong>Items:</strong></div>
+                  <div class="col-sm-6">
+                    <div class="">
+                      <div *ngFor="let item of itemList" class="">
+                        <div class="border-left-green item-container" style="">                 
+                          <div class="">
+                            <div class="col-sm-6"><strong>{{ item.name }} x {{ item.quantity }}</strong></div>
+                            <div class="col-sm-6">{{ item.price | number:'1.0-0'}} Satoshi</div>
+                          </div>                                          
+                        </div>
+                      </div>
+                      <div *ngIf="itemList.length == 0">
+                        N/A 
+                      </div>                                   
+                    </div>                         
+                </div>                  
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+      <div class="form-content">
+          <div class="form-content-top">
+            <div class="float-right form-content-top-btn">      
+              <button [disabled]="!isValidToSubmit" type="button" class="cust-btn cust-btn-green btn-lg btn-circle" (click)="onAddChannel()"><i class="fa fa-plus"></i></button>         
+            </div>                 
+            <div class="panelHeaderS">
+              <h5 style="color: #fff;"><i class="fa fa-tasks"></i> Channel Details</h5>
+            </div>   
+            <div *ngIf="isValidToSubmit" class="alert-container"> 
+              <alert [noticeMsg]="noticeMsg" #noticAlert></alert>
+            </div>            
+            <div *ngIf="isShowMinPayNotice && !hasSufficientAmt" class="border-left-green item-container-single"> 
+                <div class="item-container-single-left">
+                  <div><i class="fa fa-btc faIconCircle"></i></div>  
+                </div>
+                <div class="item-container-single-right">
+                  <div style=""><strong>Minimum Deposit Amount for New Channel:</strong></div>
+                  <div style="">{{ minPay | number:'1.0-0'}} Satoshi</div>                
+                </div>
+            </div>
+            <div >
+              <div class="channel-box">
+                  <div class="channelbox-title"><i class="fa fa-list"></i> Channel List</div> 
+                  <div class="channelbox-subtitle"></div>
+                  <div class="channelbox-content">
+                    <div *ngFor="let channel of channelList" class="channelbox-item">
+                      <div class="channelbox-item-content" style="">
+                        <div class="channel-item-btn-left">
+                          <button class="list-btn-radio" [disabled]="!isValidToSubmit || (channel.availableFund < totalPrice)" (click)="onSelectChannel($event, channel.uid)">
+                              <i *ngIf="selectedUId == channel.uid" class="fa fa-check"></i>
+                          </button>                          
+                        </div>
+                        <div class="channelbox-item-txt">
+                          <div class="channelbox-item-txt-content"><strong>{{ channel.alias }} ({{channel.sourceAddress}})</strong></div>
+                          <div class="channelbox-item-txt-content">{{ channel.availableFund | number:'1.0-0'}} Satoshi</div>
+                        </div>
+                        <div class="channel-item-btn-right">
+                          <channel-info-dialog [channel]=[channel]></channel-info-dialog>                          
+                        </div>                                                
+                      </div>
+                    </div>
+                    <div *ngIf="channelList.length == 0" class="channelbox-item">
+                      <div>
+                        <div class="channelbox-no-item-txt">
+                            No channels found.                            
+                        </div>
+                      </div>
+                    </div>                                   
+                  </div> 
+                  <div class="channelbox-footer" style="background-color: #ddd ">
+                    <ul class="pagination-cust" style="margin-bottom:0px !important;">
+                      <li class="page-item"><button [disabled]="!isValidToSubmit" class="page-link-cust" (click)="onSubmitPaging($event, 1)">First</button></li>
+                      <li *ngFor="let pageNo of createRange();" class="page-item"><button [ngClass]="{'active': (pageNo == currentIndex)}" class="page-link-cust" (click)="onSubmitPaging($event, pageNo)">{{ pageNo }}</button></li>
+                      <li class="page-item"><button [disabled]="!isValidToSubmit" class="page-link-cust" (click)="onSubmitPaging($event, totalPages)">Last</button></li>
+                    </ul>
+                  </div>                    
+              </div>
+            </div>
+          </div>
+      </div>    
+      <div class="row" style="padding-bottom:20px;">
+        <button class="cust-btn cust-btn-green floatCenter" [disabled]="selectedUId == '' || (!isValidToSubmit)" (click)="onSubmitPayment($event)"><i class="fa fa-check "></i>  Submit Payment</button>
+      }
+      </div>  
+    </div>  
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div *ngIf="this.errors != undefined">
+  <div *ngIf="errors.length > 0" class="error-alert"> 
+  	<div class="border-left-red">
+      <div class="error-alert-left" >
+        <div><i class="fa fa-times-circle"></i></div>  
+      </div>
+      <div class="error-alert-right">
+        <div *ngFor="let error of errors"><strong>{{ error }}</strong></div>            
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="successMsg != ''" class="success-alert"> 
+	<div class="border-left-green">
+    <div class="success-alert-left" >
+      <div><i class="fa fa-check-circle"></i></div>  
+    </div>
+    <div class="success-alert-right">
+      <div><strong>{{ successMsg }}</strong></div>            
+    </div>
+  </div>
+</div>
+<div *ngIf="noticeMsg != ''" class="notice-alert"> 
+  <div class="border-left-blue">
+    <div class="notice-alert-left" >
+      <div><i class="fa fa-info-circle"></i></div>  
+    </div>
+    <div class="notice-alert-right">
+      <div><strong>{{ noticeMsg }}</strong></div>            
+    </div>
+  </div>
+</div>

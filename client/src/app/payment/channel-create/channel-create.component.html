@@ -1,0 +1,80 @@
+<div>
+  <div class="form-bottom">
+    <div class="form-content">
+        <div class="form-content-top">
+          <div class="panelHeaderS">
+            <h5 class="white-font"><i class="fa fa-pencil-square-o"></i> Channel Data</h5>
+          </div>
+        </div>
+        <div class="form-content-bottom">
+          <div class="alert-container">
+            <alert [errors]="errorList"></alert>
+          </div>
+          <form [formGroup]="channelForm" role="form" action="" method="post" class="data-form form-container" style="padding-bottom:5px !important;">
+            <div class="form-group row" [ngClass]="{'has-danger': !isRefundAddValid}">
+              <div class="col-offset-sm-2 col-sm-3">
+                <label class="formLabel">Refund Address:</label>
+              </div>
+              <div class="col-sm-6">
+                <input type="text" name="form-username" class="form-control" formControlName="refundAddress" >
+              </div>                
+            </div>   
+            <div class="form-group row" [ngClass]="{'has-danger': !isChanAliasValid}">
+              <div class="col-offset-sm-2 col-sm-3">
+                <label class="formLabel">Channel Alias:</label>
+              </div>
+              <div class="col-sm-6">
+                <input type="text" name="form-username" class="form-control" formControlName="channelAlias" >
+              </div>   
+            </div>                
+          </form>      
+          <!-- <div class="form-group row">
+              <div class="col-sm-12 text-center">
+                  <label class="custom-control custom-checkbox floatCenter">
+                    <input type="checkbox" class="custom-control-input" (change)="onAcceptTerms($event)">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">I agree to Coinetion's <a href="{{getTAndCUrl()}}" target="_blank">Terms and Conditions</a> and <a href="{{getPolicyUrl()}}" target="_blank">Privacy Policy</a></span>
+                  </label>                 
+              </div>       
+          </div>  -->             
+        </div>   
+        <!-- <div class="form-content">      
+          <div class="form-content-top">
+            <div class="panelHeaderM">
+              <h5 class="white-font"><i class="fa fa-info-circle"></i> Terms and Conditions</h5>
+            </div>
+          </div>
+          <div class="form-content-bottom">
+            <div class="scrollTxtArea">
+              <terms-and-conditions></terms-and-conditions>
+            </div>
+            <div class="row col-sm-12">
+                <div class="floatCenter">
+                    <label class="custom-control custom-checkbox floatCenter">
+                      <input type="checkbox" class="custom-control-input" (change)="onAcceptTerms($event)">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">I agree to Coinetion's <a href="{{getTAndCUrl()}}">Terms and Conditions</a> and <a href="{{getPolicyUrl()}}">Privacy Policy</a></span>
+                    </label>                 
+                </div>       
+            </div>            
+          </div>
+        </div> -->
+        <!-- <div class="row btn-bar">
+          <button class="cust-btn cust-btn-green floatCenter" [disabled]="!isTermAccpeted" (click)="onAcceptSubmit()"><i class="fa fa-check "></i>  Submit</button>
+        </div>  --> 
+        <hr>
+        <div *ngIf="isCreateSubmitted" class="row" style="padding-bottom: 20px;">
+            <div class="floatCenter">
+                <img src="../assets/images/loading.gif" class="loading-icon">            
+                <div class="lead">Processing...</div>
+            </div>  
+        </div>              
+        <div class="row btn-bar">
+            <div class="floatCenter">
+                <button [disabled]="isCreateSubmitted" class="cust-btn cust-btn-red" (click)="onCreateCancel()"><i class="fa fa-times"></i>  Cancel</button> 
+                <button [disabled]="isCreateSubmitted" class="cust-btn cust-btn-green floatCenter" (click)="onCreateChannel($event)"><i class="fa fa-check"></i>  Submit</button>      
+            </div>      
+        </div>                      
+    </div>     
+  </div>  
+</div>

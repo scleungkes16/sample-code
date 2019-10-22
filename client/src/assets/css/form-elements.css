@@ -1,0 +1,455 @@
+input[type="text"], 
+input[type="password"], 
+textarea, 
+textarea.form-control {
+    height: 40px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #fff;
+    border: 2px solid #c1bfbf;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #888;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+textarea, 
+textarea.form-control {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 30px;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus, 
+textarea:focus, 
+textarea.form-control:focus {
+    outline: 0;
+    background: #fff;
+    /*border: 3px solid #fff;*/
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+
+input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder, 
+textarea:-moz-placeholder, textarea.form-control:-moz-placeholder { color: #888; }
+
+input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, 
+textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder { color: #888; }
+
+input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, 
+textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }
+
+button.cust-btn-red {
+    color: #d83a2f;
+    border: 3px solid #d83a2f;
+}
+
+button.cust-btn-red:hover  {
+    color: #FFF; 
+    background: #d83a2f;
+    border: 3px solid #FFF;
+}
+
+button.cust-btn-red:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #d83a2f; 
+    color: #fff; 
+}
+
+button.cust-btn-red:active:focus, button.cust-btn-red.active:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #d83a2f; 
+    color: #fff; 
+}
+
+button.cust-btn-red {
+    color: #d83a2f;
+    border: 3px solid #d83a2f;
+}
+
+button.cust-btn-red:hover  {
+    color: #FFF; 
+    background: #d83a2f;
+    border: 3px solid #FFF;
+}
+
+button.cust-btn-red:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #d83a2f; 
+    color: #fff; 
+}
+
+button.cust-btn-red:active:focus, button.cust-btn-red.active:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #d83a2f; 
+    color: #fff; 
+}
+
+button.cust-btn-red:disabled, button.cust-btn-red:hover:disabled {
+    outline: 0; 
+    opacity: 0.6; 
+    background: #FFF; 
+    color: #d83a2f;
+    border: 3px solid #d83a2f;
+}
+
+
+button.cust-btn-green {
+    color: #139d74;
+    border: 3px solid #139d74;
+}
+
+
+button.cust-btn-green:hover  {
+    color: #FFF; 
+    background: #139d74;
+    border: 3px solid #FFF;
+}
+
+button.cust-btn-green:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #139d74; 
+    color: #fff; 
+}
+
+button.cust-btn-green:active:focus, button.cust-btn-green.active:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #139d74; 
+    color: #fff; 
+}
+
+button.cust-btn-green:disabled, button.cust-btn-green:hover:disabled {
+    outline: 0; 
+    opacity: 0.6; 
+    background: #FFF; 
+    color: #6da594;
+    border: 3px solid #6da594;
+}
+
+button.cust-btn {
+    height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #FFF;
+    /*border: 3px solid #139d74;*/
+    /*color: #139d74;*/
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 40px;
+    -moz-border-radius: 30px; 
+    -webkit-border-radius: 30px; 
+    border-radius: 30px;
+    text-shadow: none;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+/* Dropdown button */
+button.cust-dropdown-left {
+    height: 40px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #FFF;
+    border-top: 2px solid #c1bfbf;
+    border-bottom: 2px solid #c1bfbf;
+    border-left: 2px solid #c1bfbf;
+    border-right: 0px solid #c1bfbf;
+    color: #888;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 18px;
+    font-weight: 300 !important;
+    line-height: 40px;
+    border-radius: 5px 0px 0px 5px;
+    text-shadow: none;
+    box-shadow: none;
+    transition: all .3s;
+
+    white-space: nowrap;
+}
+
+button.cust-dropdown-right {
+    height: 40px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #139d74;
+    border: 2px solid #139d74;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 18px;
+    font-weight: 300 !important;
+    /*line-height: 40px;*/
+    border-radius: 0px 5px 5px 0px;
+    text-shadow: none;
+    box-shadow: none;
+    transition: all .3s;
+}
+
+.cust-dropdown-menu {
+    border: 2px solid #c1bfbf !important;
+    width: 100%;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.cust-dropdown-item {
+    color: #888 !important;
+}
+
+.cust-dropdown-item:hover {
+    background-color: #139d74 !important;
+    color: #FFF !important;
+}
+
+/* Dropdown button */
+
+/* Calender - Begin*/
+.cust-cal-input {
+    border-top: 2px solid #c1bfbf !important;
+    border-bottom: 2px solid #c1bfbf !important;
+    border-left: 2px solid #c1bfbf !important;
+    border-right: 0px solid #c1bfbf !important;
+}
+/* Calender - End*/
+
+/* Signout button - begin */
+button.cust-btn-signout {
+    height: 30px;
+    margin: 17px 0px;
+    padding: 0 10px;
+    vertical-align: middle;
+    /*background: #3e8a7e;*/
+    background: #139d74;
+    border: 2px solid #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    /* line-height: 40px; */
+    color: #FFF;
+    border-radius: 30px;
+    text-shadow: none;
+    box-shadow: none;
+    /* transition: all .3s; */
+}
+
+
+button.cust-btn-signout:hover { color: #FFF; background: #5bccba; border: 2px solid #FFF;}
+
+button.cust-btn-signout:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #3e8a7e; 
+    color: #fff; 
+}
+
+button.cust-btn-signout:active:focus, button.cust-btn-dark.active:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #3e8a7e; 
+    color: #fff; 
+}
+
+button.cust-btn-signout:disabled, button.cust-btn-dark:hover:disabled {
+    outline: 0; 
+    opacity: 0.6; 
+    background: #FFF; 
+    color: #139d74;
+    border: 3px solid #139d74;
+}
+
+.cust-btn-signout-txt {
+    display: inline;
+}
+
+/* Signout button - End */
+/* Dialog button - Begin */
+button.cust-btn-dialog-close {
+
+    padding: 0 9px;
+    vertical-align: middle;
+    background: #139d74;
+    border: 2px solid #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #FFF;
+    border-radius: 30px;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+button.cust-btn-dialog-close:hover { color: #FFF; background: #5bccba; border: 2px solid #FFF;}
+
+button.cust-btn-dialog-close:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #3e8a7e; 
+    color: #fff; 
+}
+
+button.cust-btn-dialog-close:active:focus, button.cust-btn-dark.active:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #3e8a7e; 
+    color: #fff; 
+}
+
+button.cust-btn-dialog-close:disabled, button.cust-btn-dark:hover:disabled {
+    outline: 0; 
+    opacity: 0.6; 
+    background: #FFF; 
+    color: #139d74;
+    border: 3px solid #139d74;
+}
+/* Dialog button - End */
+
+/* Channel list buttons - Begin*/
+button.list-btn {
+    /*height: 65px;*/
+    height: 100%;
+    width: 50px;
+    /*margin: 0;*/
+    /*padding: 0 20px;*/
+    vertical-align: middle;
+    background: #FFF;
+    /*border: 3px solid #139d74;*/
+    /*color: #139d74;*/
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 40px;
+    text-shadow: none;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+button.list-btn-blue {
+    color: #FFF;
+    background: #3367d6;
+    border: 3px solid #3367d6;
+}
+
+button.list-btn-blue:hover  {
+    color: #FFF; 
+    background: #5592f4;
+    border: 3px solid #5592f4;
+}
+
+button.list-btn-blue:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #3367d6; 
+    color: #fff; 
+}
+
+button.list-btn-blue:active:focus, button.list-btn-blue.active:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #3367d6; 
+    color: #fff; 
+}
+
+button.list-btn-green {
+    color: #FFF;
+    background: #139d74;
+    border: 3px solid #139d74;
+}
+
+
+button.list-btn-green:hover  {
+    color: #FFF; 
+    background: #28cc9b;
+    border: 3px solid #28cc9b;
+}
+
+button.list-btn-green:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #28cc9b; 
+    color: #fff; 
+}
+
+button.list-btn-green:active:focus, button.list-btn-green.active:focus { 
+    outline: 0; 
+    opacity: 0.6; 
+    background: #28cc9b; 
+    color: #fff; 
+}
+
+button.list-btn-green:disabled{ 
+    color: #fff;
+    outline: 0; 
+    /* opacity: 0.6; */
+    background: #a0a0a0; 
+    border: 1px solid #a0a0a0; 
+}
+
+
+button.list-btn-radio {
+    background: #898989;
+    border: 3px solid #898989;
+    color: #898989;
+
+    height: 40px;
+    width: 40px;
+    margin: 10px 5px;
+    /* padding: 0px 20px; */
+    vertical-align: middle;
+    background: #FFF;
+    /* border: 3px solid #139d74; */
+    /* color: #139d74; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 30px;
+    text-shadow: none;
+    box-shadow: none;
+    transition: all .3s;
+    border-radius: 30px;
+}
+
+button.list-btn-radio:hover  {
+    color: #FFF; 
+    background: #139d74;
+    border: 3px solid #139d74;
+}
+
+button.list-btn-radio:focus { 
+    outline: 0; 
+    /*opacity: 0.6; */
+    background: #139d74; 
+    color: #fff; 
+}
+
+button.list-btn-radio:active:focus, button.list-btn-blue.radio:focus { 
+    outline: 0; 
+    /*opacity: 0.6; */
+    background: #139d74; 
+    color: #fff; 
+}
+
+button.list-btn-radio:disabled { 
+    outline: 0; 
+    opacity: 0.4; 
+    background: #FFF; 
+    color: #FFF; 
+    border: 3px solid #898989;
+}
+
+/* Channel list buttons - Begin*/
+
+@media (max-width: 415px) {
+}
